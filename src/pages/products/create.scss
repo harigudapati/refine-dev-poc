@@ -1,0 +1,61 @@
+.new-shipping {
+  main {
+    padding-top: 10rem;
+  }
+
+  .shipping-title {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .shipping-form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 30rem;
+    label {
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+    }
+    label,
+    input,
+    select {
+      display: block;
+      width: 100%;
+    }
+
+    input,
+    select,
+    textarea {
+      border: 1px solid #ccc;
+      padding: 0.2rem 0.5rem;
+      font: inherit;
+      margin-bottom: 1rem;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      background: #d8f3df;
+      border-color: #2ddf5c;
+    }
+
+    input.invalid,
+    select.invalid,
+    &:invalid {
+      border-color: red !important;
+      background: #faacac;
+    }
+
+    button[type='submit'] {
+      display: block;
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+      width: 7rem;
+      padding: 1rem;
+      border-radius: 0.25rem;
+    }
+  }
+}

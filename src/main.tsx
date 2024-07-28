@@ -1,10 +1,52 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+
+import {
+  EventType,
+  PublicClientApplication,
+  AccountInfo,
+  EventPayload,
+  SilentRequest,
+} from '@azure/msal-browser'
+import { MsalProvider } from '@azure/msal-react'
+
+import App, { TOKEN_KEY } from './App.tsx'
+import { msalConfig, tokenRequest } from './config.ts'
 import './index.css'
+
+// const msalInstance = new PublicClientApplication(msalConfig)
+
+// msalInstance.addEventCallback(async (event) => {
+//   if (event.eventType === EventType.LOGIN_SUCCESS) {
+//     const payload: EventPayload = event.payload
+//     msalInstance.setActiveAccount(payload as AccountInfo)
+
+//     let account = msalInstance.getActiveAccount()
+
+//     const request: SilentRequest = {
+//       ...tokenRequest,
+//       account: account!,
+//     }
+//     try {
+//       // Silently acquires an access token which is then attached to a request for API access
+//       const response = await msalInstance.acquireTokenSilent(request)
+//       console.log('Fetching access token: success')
+//       console.log('Scopes', response.scopes)
+//       console.log('Token Type', response.tokenType)
+
+//       localStorage.setItem(TOKEN_KEY, response.accessToken)
+//     } catch (e) {
+//       msalInstance.acquireTokenPopup(request).then((response) => {
+//         localStorage.setItem(TOKEN_KEY, response.accessToken)
+//       })
+//     }
+//   }
+// })
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    {/* <MsalProvider instance={msalInstance}> */}
     <App />
-  </React.StrictMode>,
+    {/* </MsalProvider> */}
+  </React.StrictMode>
 )
